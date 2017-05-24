@@ -1,1 +1,4 @@
-# Ypu
+# flickrV2
+Using MySQL and Python’s Flask, I designed a close replica of flickr where users could enjoy a full array of functionalities including registration, adding and listing friends, album creation and browsing, photo upload and browsing, photo and album deletion, tagging and naming photos, browsing photos by name or tag, viewing all photos on site associated with certain tag, viewing most popular tags, leaving comments on photos and liking photos. PhotoShare’s primary objective was to provide a platform where users could not only showcase their own photos, but browse photos that potentially matched their preference. Upon signing in, each user could navigate to a ranked list of recommended photos rendered by a function that scored each photo in the community based on the proximity of its tags to the comprehensive set of tags used by the user.
+
+#to run the code create a host on port 5000 and run the .py file.
