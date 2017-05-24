@@ -1,0 +1,20 @@
+<!doctype html>
+<h1>Your Album Names</h1>
+{% if albums %}
+<form method = "GET">
+    <ul>
+    {% for album in albums %}
+        <li>{{album}}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+</form>
+
+<h2>Delete Album</h2>
+<form method = "POST", action = "/deleteAlbums">
+	<label for="album"></label>
+	Album Name:<input type="text" name="album_name"/>
+	<input type="submit" value="Delete"/>
+</form>
+
+<li><a href='/'>Home</a></li>

@@ -1,0 +1,56 @@
+<!doctype html>
+<h2>Your Albums </h2>
+	{% if albums %}
+	<form method = "GET">
+		<ul>
+		{% for album in albums %}
+			<li>{{album}}</li>
+		{% endfor %}
+		</ul>
+	{% endif %}
+	</form>
+
+<h2>Your Tags</h2>
+	{% if view_tags %}
+	<form method = "GET">
+		<ul>
+		{% for tag in view_tags %}
+			<li>{{tag}}</li>
+		{% endfor %}
+		</ul>
+	{% endif %}
+	</form>
+{% if message %}
+  <h4>{{message}}!</h4>
+{% endif %}
+	<form method = "POST", action = "/myphotos">
+		<label for="Album">Enter the name of the album you wish to view:</label><br />
+		Album Name:<input type="text" name="album" /><br />
+		<input type="submit" value="View" />
+	</form>
+	
+	<form method = "POST", action = "/myphotos">
+		<label for="Tag">OR Enter the tag of the photos you wish to view:</label><br />
+		Tag Name:<input type="text" name="tag_name" /><br />
+		<input type="submit" value="View" />
+	</form>
+	
+	
+	{% if photos %}
+	<h2>Here's your photos</h2>
+		<ul>
+		{% for photo in photos %}
+			<li>{{photo[2]}}<br>
+        <a href='/comments'><img src='data:image/png;base64, {{photo[0]}}'/></a></li>
+		{% endfor %}
+	{% endif %}
+		</ul>
+
+<ul>
+<li><a href='/view'> View Friends</a> </li>
+<li><a href='/add'> Add Friends</a> </li>
+<li><a href='/upload'>Upload a Photo</a> </li> 
+<li><a href='/allphotos'>Browse All Photos</a> </li> 
+<li><a href='/logout'>Logout</a></li>
+<li><a href='/'>Home</a></li>
+</ul>

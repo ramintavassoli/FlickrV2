@@ -1,0 +1,20 @@
+<!doctype html>
+<h1>Your Photos</h1>
+	{% if photos %}
+	<h2>Here's your photos</h2>
+		<ul>
+		{% for photo in photos %}
+			<li>{{photo[1]}}<br>
+			<img src='data:image/png;base64, {{photo[0]}}'/></li>
+		{% endfor %}
+		</ul>
+	{% endif %}
+
+<h2>Delete Photos</h2>
+<form method = "POST", action = "/deletePhotos">
+	<label for="photo"></label>
+	Photo Number:<input type="text" name="pid"/>
+	<input type="submit" value="Delete"/>
+</form>
+
+<li><a href='/'>Home</a></li>

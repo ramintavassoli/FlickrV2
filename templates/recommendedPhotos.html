@@ -1,0 +1,10 @@
+<!doctype html>
+	{% if photos %}
+	<h2>Here's some photos you may like!</h2>
+		<ul>
+		{% for photo in photos %}
+			<li>{{photo[2]}}<br>
+        <a href='/comments'><img src='data:image/png;base64, {{photo[0]}}'/></a></li>
+		{% endfor %}
+	{% endif %}
+		</ul>

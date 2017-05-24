@@ -1,0 +1,13 @@
+<!doctype html>
+<title>View Friends</title>
+{% if message %}
+  <h4>{{message}}!</h4>
+{% endif %}
+{% if friends %}
+<h2>Your Friends Are:</h2>
+    <ul>
+    {% for friend in friends %}
+        <li>{{friend}}</li>
+    {% endfor %}
+    </ul>
+{% endif %}

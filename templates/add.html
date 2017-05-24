@@ -1,0 +1,27 @@
+<!doctype html>
+<head>
+    <title>Add a Friend</title>
+</head>
+    <body>
+        <div class="title">
+            <h2>Photoshare Community:</h2>
+        </div>
+{% if potential %}
+<form method = "GET", action = "/list">
+    <ul>
+    {% for person in potential %}
+        <li>{{person}}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+</form>
+	{% if message %}
+	<h4>{{message}}!</h4>
+	<p> Go to <a href='/profile'>profile</a></p>
+	{% endif %}
+	<br />
+	<form method = "POST", action = "/add">
+		First Name:<input type="text" name="f_name" /> <br />
+		Last Name:<input type="text" name="l_name" /> <br />
+		<input type="submit" value="Add Friend" />
+	</form>

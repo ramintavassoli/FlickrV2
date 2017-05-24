@@ -1,0 +1,80 @@
+<!doctype html>
+<h2>Browse by Artist Names and Tags</h2>
+
+{% if view_artists %}
+<h3>Artists</h3>
+<form method = "GET">
+    <ul>
+    {% for person in view_artists %}
+        <li>{{person}}</li>
+    {% endfor %}
+    </ul>
+</form>
+{% endif %}
+
+{% if view_tags %}
+<h3>Tags</h3>
+<form method = "GET">
+    <ul>
+    {% for tag in view_tags %}
+        <li>{{tag}}</li>
+    {% endfor %}
+    </ul>
+</form>
+{% endif %}
+
+{% if view_most_pop_tags %}
+<h3>Most Popular Tags</h3>
+<form method = "GET">
+    <ul>
+    {% for tag in view_most_pop_tags %}
+        <li>{{tag}}</li>
+    {% endfor %}
+    </ul>
+</form>
+{% endif %}
+
+	<form method = "POST", action = "/allphotos">
+		First Name:<input type="text" name="f_name" /> <br />
+		Last Name:<input type="text" name="l_name" /> <br />
+		<input type="submit" value="View Photos" />
+	</form>
+	
+	<form method = "POST", action = "/allphotos">
+		Tag Name:<input type="text" name="tag_name" /> <br />
+		<input type="submit" value="View Photos" />
+	</form>
+
+	{% if message %}
+	<h4>{{message}}!</h4>
+	{% endif %}
+	
+	{% if message_two %}
+	<h2>{{message_two}}!</h3>
+	<ul>
+		<li>Remember the image_key posted just above the image</li>
+		<li>Click the image to redirect to the comments page</li>
+		<li>You may now view comments posted by others and insert your own comments using the image_key</li>
+		<li>Happy commenting! We appreciate your input</li>
+	</ul>
+	{% endif %}
+	
+	{% if photos %}
+	<h2>Here's your photos</h2>
+		<ul>
+		{% for photo in photos %}
+			<li>Caption = {{photo[2]}}</li>
+			<li>Image_key = {{photo[1]}}</li>
+			<li><a href= "/comments"><img src='data:image/png;base64, {{photo[0]}}'/></a></li>
+		{% endfor %}
+		</ul>
+	{% endif %}
+
+
+<ul>
+<li><a href='/view'> View Friends</a> </li>
+<li><a href='/add'> Add Friends</a> </li>
+<li><a href='/upload'>Upload a Photo</a> </li> 
+<li><a href='/logout'>Logout</a></li>
+<li><a href='/'>Home</a></li>
+</ul>
